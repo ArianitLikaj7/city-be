@@ -16,6 +16,7 @@ public class CityDto {
     private Long cityId;
     private String nameOfCity;
     private String culturalHeritage;
+    private String cityPrefix;
     private List<GastronomeDto> gastronomeDtos;
 
 }
