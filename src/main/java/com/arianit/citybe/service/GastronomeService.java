@@ -81,6 +81,10 @@ public class GastronomeService {
             existingGastronome.setLatitude(gastronome.getLatitude());
         }
 
+        if (gastronome.getAttachments() != null){
+            existingGastronome.setAttachments(gastronome.getAttachments());
+        }
+
 
         existingGastronome = gastronomeRepository.save(existingGastronome);
         return gastronomeMapper.mapEntityToDto(existingGastronome);

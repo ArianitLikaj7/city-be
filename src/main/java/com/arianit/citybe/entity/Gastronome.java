@@ -45,4 +45,9 @@ public class Gastronome {
     @OneToMany(mappedBy = "gastronome", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Reservation> reservations;
+
+    @ElementCollection
+    @CollectionTable(name = "gastronome_attachments", joinColumns = @JoinColumn(name = "gastronome_id"))
+    @Column(name = "attachment")
+    private List<String> attachments;
 }

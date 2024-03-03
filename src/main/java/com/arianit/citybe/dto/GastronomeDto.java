@@ -2,6 +2,8 @@ package com.arianit.citybe.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,5 +17,7 @@ public class GastronomeDto {
     private Double longitude;
     private Double latitude;
     private String typeOfGastronome;
+    private List<String> attachments;
+
 
 }
