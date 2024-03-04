@@ -42,6 +42,11 @@ public class CityController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/getCitiesByPrefix")
+    public List<City> getCitiesByPrefix(@RequestParam String prefix) {
+        return cityService.findCitiesByCityPrefix(prefix);
+    }
     @GetMapping("/getCityById/{cityId}")
     public ResponseEntity<CityDto> getCityById(@PathVariable long cityId) {
         CityDto city = cityService.getCityById(cityId);

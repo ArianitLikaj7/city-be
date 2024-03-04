@@ -11,6 +11,6 @@ import java.util.List;
 public interface CityRepository extends JpaRepository<City, Long> {
     @Query("SELECT c.cityId FROM City c WHERE c.cityId IN :cityIds")
     List<Long> findExistingCityIds(@Param("cityIds") List<Long> cityIds);
+        List<City> findCitiesByCityPrefix(String cityPrefix);
 
-    List<City> findCitiesByCityPrefix();
 }
