@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,8 +44,6 @@ public class TripService {
     public List<TripDto> createAdvanceTrip2(List<Long> cityIds, List<TypeOfGastronome> gastronomyTypes) {
         return tripRepository.findTripDetailsByCityIdsAndGastronomyTypes(cityIds, gastronomyTypes);
     }
-
-
     public TripDto createAdvanceTrip(List<Long> cityIds, List<TypeOfGastronome> gastronomyTypes) {
         List<City> cities = cityRepository.findAllById(cityIds);
         Trip trip = new Trip();
@@ -75,7 +74,6 @@ public class TripService {
 
         return tripDto;
     }
-
 
     public List<TripDto> getAllTrips() {
         List<Trip> trips = tripRepository.findAll();

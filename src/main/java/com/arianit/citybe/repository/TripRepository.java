@@ -25,7 +25,8 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
             "       c.id IN (:cityIds) " +
             "       AND g.type_of_gastronome IN (:gastronomyTypes) " +
             "ORDER BY " +
-            "       CASE WHEN g.is_sponsored THEN 0 ELSE 1 END",
+            "       CASE WHEN g.is_sponsored THEN 0 ELSE 1 END, " +  // Prioritize sponsored gastronomies
+            "       CASE WHEN g.is_sponsored THEN RANDOM() ELSE 0 END", // Randomize within sponsored status group
             nativeQuery = true)
     List<TripDto> findTripDetailsByCityIdsAndGastronomyTypes(@Param("cityIds") List<Long> cityIds,
                                                              @Param("gastronomyTypes") List<TypeOfGastronome> gastronomyTypes);
