@@ -39,6 +39,12 @@ public class TripService {
         this.gastronomeMapper = gastronomeMapper;
     }
 
+
+    public List<TripDto> createAdvanceTrip2(List<Long> cityIds, List<TypeOfGastronome> gastronomyTypes) {
+        return tripRepository.findTripDetailsByCityIdsAndGastronomyTypes(cityIds, gastronomyTypes);
+    }
+
+
     public TripDto createAdvanceTrip(List<Long> cityIds, List<TypeOfGastronome> gastronomyTypes) {
         List<City> cities = cityRepository.findAllById(cityIds);
         Trip trip = new Trip();

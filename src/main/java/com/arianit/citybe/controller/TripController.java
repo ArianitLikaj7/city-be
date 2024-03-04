@@ -26,6 +26,11 @@ public class TripController {
         TripDto citiesWithGastronomies = tripService.createAdvanceTrip(tripReq.getCityIds(), tripReq.getTypeOfGastronomes());
         return new ResponseEntity<>(citiesWithGastronomies, HttpStatus.OK);
     }
+    @PostMapping("/createTripWithReqBody2")
+    public ResponseEntity<TripDto> createAdvanceTrip2(@RequestBody TripReq tripReq) {
+        TripDto citiesWithGastronomies = tripService.createAdvanceTrip(tripReq.getCityIds(), tripReq.getTypeOfGastronomes());
+        return new ResponseEntity<>(citiesWithGastronomies, HttpStatus.OK);
+    }
 
     @GetMapping("/createTripWithParams")
     public ResponseEntity<TripDto> createAdvanceTrip(
