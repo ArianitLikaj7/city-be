@@ -17,6 +17,7 @@ public class GastronomeDto {
     private Double longitude;
     private Double latitude;
     private String typeOfGastronome;
+    private boolean sponsored;
     private List<String> attachments;
 
 

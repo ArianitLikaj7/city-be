@@ -34,6 +34,9 @@ public class Gastronome {
     @Column(nullable = false)
     private Double latitude;
 
+    @Column
+    private boolean sponsored;
+
     @Enumerated(EnumType.STRING)
     private TypeOfGastronome typeOfGastronome;
 

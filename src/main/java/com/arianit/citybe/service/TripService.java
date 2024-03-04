@@ -50,8 +50,11 @@ public class TripService {
         List<CityDto> cityDtos = cities.stream()
                 .map(city -> {
                     List<Gastronome> filteredGastronomies = city.getGastronomes().stream()
-                            .filter(g -> gastronomyTypes.contains(g.getTypeOfGastronome()))
+                            .filter(g -> gastronomyTypes.contains(g.getTypeOfGastronome()) && g.isSponsored())
                             .collect(Collectors.toList());
+                    filteredGastronomies.addAll(city.getGastronomes().stream()
+                            .filter(g -> gastronomyTypes.contains(g.getTypeOfGastronome()) && !g.isSponsored())
+                            .collect(Collectors.toList()));
                     city.setGastronomes(filteredGastronomies);
                     return cityMapper.mapEntityToDto(city);
                 })
@@ -66,6 +69,7 @@ public class TripService {
 
         return tripDto;
     }
+
 
     public List<TripDto> getAllTrips() {
         List<Trip> trips = tripRepository.findAll();
