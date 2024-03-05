@@ -47,8 +47,10 @@ public class CityService {
         City savedCity = cityRepository.save(city);
         return cityMapper.mapEntityToDto(savedCity);
     }
-    public List<City> findCitiesByCityPrefix(String cityPrefix) {
-        return cityRepository.findCitiesByCityPrefix(cityPrefix);
+    public List<CityDto> findCitiesByCityPrefix(String cityPrefix) {
+        return cityRepository.findCitiesByCityPrefix(cityPrefix).stream()
+                .map(cityMapper::mapEntityToDto)
+                .collect(toList());
     }
 
     public void deleteCity(Long cityId) {
