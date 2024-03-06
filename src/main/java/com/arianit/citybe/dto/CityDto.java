@@ -2,6 +2,7 @@ package com.arianit.citybe.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.List;

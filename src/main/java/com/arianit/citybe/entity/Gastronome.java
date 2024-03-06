@@ -40,6 +40,18 @@ public class Gastronome {
     @Enumerated(EnumType.STRING)
     private TypeOfGastronome typeOfGastronome;
 
+    @Column()
+    private Integer rating;
+
+    @Column(length = 500)
+    private String description;
+
+    @Column
+    private Double price;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
     @ManyToOne
     @JoinColumn(name = "city_id")
     @JsonBackReference
