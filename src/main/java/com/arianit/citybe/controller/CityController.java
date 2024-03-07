@@ -43,8 +43,8 @@ public class CityController {
         }
     }
 
-    @GetMapping("/getCitiesByPrefix")
-    public List<City> getCitiesByPrefix(@RequestParam String prefix) {
+    @GetMapping("/getCityByPrefix")
+    public CityDto getCitiesByPrefix(@RequestParam String prefix) {
         return cityService.findCitiesByCityPrefix(prefix);
     }
     @GetMapping("/getCityById/{cityId}")
