@@ -46,8 +46,9 @@ public class Gastronome {
     @Column(length = 500)
     private String description;
 
-    @Column
-    private Double price;
+    @Column(columnDefinition = "FLOAT")
+    private Float price;
+
 
     @Column(name = "phone_number")
     private String phoneNumber;
