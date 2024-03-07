@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
@@ -46,9 +47,8 @@ public class Gastronome {
     @Column(length = 500)
     private String description;
 
-    @Column(columnDefinition = "FLOAT")
-    private Float price;
-
+    @Column(precision = 10, scale = 2)
+    private BigDecimal price;
 
     @Column(name = "phone_number")
     private String phoneNumber;
