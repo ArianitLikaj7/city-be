@@ -52,7 +52,6 @@ public class CityService {
         CityDto cityDto = cityMapper.mapEntityToDto(city);
         return cityDto;
     }
-
     public void deleteCity(Long cityId) {
         if (!cityRepository.existsById(cityId)) {
             throw new ResourceNotFoundException("The city with this id not found " + cityId);

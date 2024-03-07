@@ -42,10 +42,9 @@ public class CityController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @GetMapping("/getCityByPrefix")
     public CityDto getCitiesByPrefix(@RequestParam String prefix) {
-        return cityService.findCitiesByCityPrefix(prefix);
+
     }
     @GetMapping("/getCityById/{cityId}")
     public ResponseEntity<CityDto> getCityById(@PathVariable long cityId) {
